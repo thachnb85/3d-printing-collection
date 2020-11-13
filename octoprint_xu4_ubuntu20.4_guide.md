@@ -34,6 +34,9 @@ usermod -a -G dialout pi
 Modify not asking password for sudo
 ```
 sudo EDITOR=nano visudo
+```
+Adding to the bottom:
+```
 pi ALL=(ALL) NOPASSWD:ALL
 ```
 
