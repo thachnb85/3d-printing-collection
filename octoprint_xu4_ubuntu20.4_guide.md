@@ -1,12 +1,13 @@
 
 # 1. OS image
-### Download Ubuntu 20.4 for XU 4
-https://odroid.in/ubuntu_20.04lts/XU3_XU4_MC1_HC1_HC2/ubuntu-20.04.1-5.4-minimal-odroid-xu4-20200812.img.xz
+### Download Ubuntu 18.04 for XU 4
+https://odroid.in/ubuntu_18.04lts/XU3_XU4_MC1_HC1_HC2/ubuntu-18.04.3-4.14-minimal-odroid-xu4-20190910.img.xz
+BUG: 20.04: webcam doesn't work
 
 ### Flashing image:
 diskutil list
-diskutil unmountDisk /dev/disk4
-sudo dd bs=1m if=ubuntu-20.04.1-5.4-minimal-odroid-xu4-20200812.img of=/dev/disk4
+diskutil unmountDisk /dev/disk2
+sudo dd bs=1m if=ubuntu-18.04.3-4.14-minimal-odroid-xu4-20190910.img of=/dev/disk2
 
 ### Wifi configuration
 https://wiki.odroid.com/troubleshooting/minimal_image_wifi_setup_nmcli
@@ -110,4 +111,29 @@ ENABLED=1
 Then start the service:
 ```
 sudo service haproxy start
+```
+
+## Adding Camera
+```
+cd ~
+sudo apt install subversion libjpeg62-dev imagemagick ffmpeg libv4l-dev cmake
+git clone https://github.com/jacksonliam/mjpg-streamer.git
+cd mjpg-streamer/mjpg-streamer-experimental
+export LD_LIBRARY_PATH=.
+make
+```
+
+### Testing Camera
+```
+./mjpg_streamer -i "./input_uvc.so" -o "./output_http.so"
+```
+Check webcam supported formats:
+```
+sudo apt install v4l-utils
+v4l2-ctl --list-formats
+
+```
+Check if we have JPEG, then test:
+```
+./mjpg_streamer -i "./input_uvc.so -n -f 10 -r 640x480" -o "./output_http.so -p 10088 -w /usr/local/www"
 ```
