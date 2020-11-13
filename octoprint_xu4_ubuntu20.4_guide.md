@@ -130,7 +130,7 @@ sudo service haproxy start
 ## Adding Camera
 ```
 cd ~
-sudo apt install subversion libjpeg62-dev imagemagick ffmpeg libv4l-dev cmake
+sudo apt install -y subversion libjpeg62-dev imagemagick ffmpeg libv4l-dev cmake
 git clone https://github.com/jacksonliam/mjpg-streamer.git
 cd mjpg-streamer/mjpg-streamer-experimental
 export LD_LIBRARY_PATH=.
