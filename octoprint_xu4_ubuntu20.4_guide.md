@@ -31,6 +31,11 @@ usermod -a -G video pi
 usermod -a -G tty pi
 usermod -a -G dialout pi
 ```
+Modify not asking password for sudo
+```
+sudo EDITOR=nano visudo
+pi ALL=(ALL) NOPASSWD:ALL
+```
 
 ## Install OctoPrint
 ```
