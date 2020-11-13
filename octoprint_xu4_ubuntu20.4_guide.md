@@ -98,6 +98,15 @@ backend webcam
         server webcam1  127.0.0.1:8080
 ```
 
+Enable HAProxy:
+```
+sudo nano /etc/default/haproxy 
+```
+Then adding 
+```
+ENABLED=1 
+```
+
 Then start the service:
 ```
 sudo service haproxy start
