@@ -58,9 +58,9 @@ sudo apt install haproxy
 ```
 Adding config file
 ```
-nano /etc/haproxy/haproxy.cfg
+sudo nano /etc/haproxy/haproxy.cfg
 ```
-with content
+Adding OctoPrint at the bottom:
 ```
 global
         maxconn 4096
