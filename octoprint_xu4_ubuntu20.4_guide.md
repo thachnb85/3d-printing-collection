@@ -12,6 +12,8 @@ sudo dd bs=1m if=ubuntu-18.04.3-4.14-minimal-odroid-xu4-20190910.img of=/dev/dis
 ### Wifi configuration
 https://wiki.odroid.com/troubleshooting/minimal_image_wifi_setup_nmcli
 ```
+Need to append the net.ifnames=0 to bootargs in /media/boot/boot.ini to change the interface name to wlan0.
+
 nmcli device
 nmcli radio wifi on
 nmcli device wifi list
@@ -33,7 +35,7 @@ usermod -a -G dialout pi
 ```
 cd ~
 sudo apt update
-sudo apt install python3-pip python3-dev python3-setuptools python3-venv git libyaml-dev build-essential
+sudo apt install -y python3-pip python3-dev python3-setuptools python3-venv git libyaml-dev build-essential
 mkdir OctoPrint && cd OctoPrint
 python3 -m venv venv
 source venv/bin/activate
@@ -44,6 +46,18 @@ pip install octoprint
 ### Testing
 ```
 ~/OctoPrint/venv/bin/octoprint serve
+```
+First time config:
+```
+Restart OctoPrint: sudo service octoprint restart
+Restart system: sudo shutdown -r now
+Shutdown system: sudo shutdown -h now
+```
+Webcam config
+```
+Stream URL: /webcam/?action=stream
+Snapshot URL: http://127.0.0.1:8080/?action=snapshot
+Path to FFMPEG: /usr/bin/ffmpeg
 ```
 
 ### Automatic start up
