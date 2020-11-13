@@ -48,6 +48,8 @@ pip install octoprint
 ### Automatic start up
 ```
 wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service
+sudo systemctl enable octoprint.service
+
 ```
 
 ### Open port 80
