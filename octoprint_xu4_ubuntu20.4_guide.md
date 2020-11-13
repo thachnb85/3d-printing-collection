@@ -27,6 +27,7 @@ https://community.octoprint.org/t/setting-up-octoprint-on-a-raspberry-pi-running
 ```
 adduser pi
 usermod -aG sudo pi
+usermod -a -G video pi
 usermod -a -G tty pi
 usermod -a -G dialout pi
 ```
@@ -149,5 +150,5 @@ v4l2-ctl --list-formats
 ```
 Check if we have JPEG, then test:
 ```
-./mjpg_streamer -i "./input_uvc.so -n -f 10 -r 640x480" -o "./output_http.so -p 10088 -w /usr/local/www"
+sudo ./mjpg_streamer -i "./input_uvc.so -n -f 10 -r 640x480" -o "./output_http.so -p 10088 -w /usr/local/www"
 ```
