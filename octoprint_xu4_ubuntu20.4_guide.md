@@ -64,7 +64,7 @@ Path to FFMPEG: /usr/bin/ffmpeg
 ```
 wget https://github.com/OctoPrint/OctoPrint/raw/master/scripts/octoprint.service && sudo mv octoprint.service /etc/systemd/system/octoprint.service
 sudo systemctl enable octoprint.service
-
+sudo systemctl start octoprint.service
 ```
 
 ### Open port 80
