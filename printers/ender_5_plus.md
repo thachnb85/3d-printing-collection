@@ -38,3 +38,8 @@ If it's smaller -> under extrusion
 For example: got 0.92 / 0.8 = 88.8% 
 Change *FLOW setitng* in SLICER to 88% to get the perfect size.
 
+# 5. Large nozzle
+ CURA settings for large nozzle:
+ - Infill: density 5
+ - Connect infill line CHECKED
+ - Gradual infill steps 0
