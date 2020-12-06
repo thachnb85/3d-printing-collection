@@ -73,7 +73,7 @@ measure 21mm, 120 - 21 = 99 mm
 
 Set new e-step:
 ```
-M92 133
+M92 E133
 ```
 
 Save to memory
