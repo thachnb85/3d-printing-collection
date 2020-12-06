@@ -56,10 +56,20 @@ Actual length extruded = 120 -  [length from extruder to mark]
 [steps/mm value] x 100 = [steps taken]
 => [steps taken] / [actual length extruded] = [accurate steps/mm value]
 
-For example:
-Over extruding case: 120 - 15 = 105 mm
+Example over extruding case: 
+```
+measured 21mm
+120 - 15 = 105 mm
 [steps taken] = 140 (current) * 100 = 14000
 [accurate steps/mm value] = 14000/105 = 133
+```
+
+Example under-extruding case: 
+```
+measure 21mm, 120 - 21 = 99 mm
+[steps taken] = 140 (current) * 100 = 14000
+[accurate steps/mm value] = 14000/99 = 141
+```
 
 Set new e-step:
 ```
